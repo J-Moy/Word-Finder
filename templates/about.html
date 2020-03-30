@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: peachpuff">
+    <head>
+        <meta charset="UTF-8">
+        <title>About</title>
+    </head>
+    <body>
+        <div align="center">
+            <a href="http://127.0.0.1:5000">Home</a> |
+            <a href="http://127.0.0.1:5000/about">About</a>
+        </div>
+        <h1 align="center">About Word Finder</h1>
+        <p align="center">
+            Word Finder is a simple web application that will take any combination of letters and output all of the words
+            that can be built from some or all of those letters. Optionally, preceding or proceeding letters can be given along with
+            the main letters and all words that start or end with the specified letters will be output. This application was made with
+            the intention of making games like Scrabble, Words With Friends, Wordscapes, among others, more easy.
+            <br><br>
+            Word Finder is built using Python's Flask framework along with Jinja2 templates and MongoDB for caching past inputs.
+            The Python script itself is written using the Pyenchant and Itertools modules. Pyenchant is a spellchecking module
+            which can also be used to check if a word is indeed an actual English word. Itertools is used for calculating the
+            permutations of the user input letters which are then subsequently checked using Pyenchant to validate whether or not
+            the permutation is a word. The words are then processed and passed to a Jinja2 template for rendering. All this can be seen
+            at the project's <a href="http://127.0.0.1:5000/about" target="_blank">GitHub</a> repo.
+        </p>
+        <h1 align="center">About Me</h1>
+        <p align="center">
+            My name is Justin Moy and I am a senior pursuing my B.A in computer science at Boston University's College of Arts and Sciences.
+            This web application, Word Finder, is a small personal project that began as a simple Python script that I wrote to generate words
+            to help me on the mobile game Wordscapes. Over time, I polished the script and improved it so that it could be useful for other
+            vocabulary games, such as Scrabble and Words With Friends. Now, I wanted to challenge myself further by implementing it as a web
+            application with more features and a better look, mainly as a means to learn.
+        </p>
+
+    </body>
+</html>

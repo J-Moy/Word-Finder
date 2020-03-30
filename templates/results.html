@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: peachpuff">
+<head>
+    <meta charset="UTF-8">
+    <div align="center">
+    <title>Results</title>
+        <a href="http://127.0.0.1:5000">Home</a> |
+        <a href="http://127.0.0.1:5000/about">About</a>
+    </div>
+    <h1 align="center">Your results:</h1>
+</head>
+<body>
+<div align="center">
+{% if not words | length %}
+    No words found with those letters.<br><br>
+    <a href="http://127.0.0.1:5000">Try again?</a>
+{% else %}
+    {% for word in words %}
+        Words with {{ word[0] | length }} letters ({{ word | length }}):<br>
+        {% for w in word %}
+            <span><b>{{ w }}</b></span><br>
+        {% endfor %}
+        <br>
+    {% endfor %}
+{% endif %}
+
+</div>
+</body>
+</html>

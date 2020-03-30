@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: peachpuff">
+    <head>
+        <meta charset="UTF-8">
+        <title>Word Finder</title>
+    </head>
+    <body>
+        <div align="center">
+            <a href="http://127.0.0.1:5000">Home</a> |
+            <a href="http://127.0.0.1:5000/about">About</a>
+        </div>
+        <h1 align="center">Welcome to Word Finder!</h1>
+        <div align="center" >
+            <form method="POST">
+                <label for="letters">Enter letters (maximum of 8):</label><br>
+                <input type="text" id="letters" name="letters" maxlength="8" required><br>
+                <input type="submit"><br><br>
+            </form>
+            <!--
+            {% for word in words %}
+                {% for w in word %}
+                    {{ w }}<br>
+                {% endfor %}
+            {% endfor %}
+            !-->
+        </div>
+    </body>
+</html>
