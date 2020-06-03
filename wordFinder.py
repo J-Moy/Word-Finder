@@ -1,4 +1,5 @@
 import enchant
+# from nltk import everygrams
 import itertools as it
 from bs4 import BeautifulSoup
 import requests
@@ -15,10 +16,11 @@ TO DO:
 
 file = open('dictionary_compact.json', 'r')
 data = json.load(file)
+file.close()
 
 def words(letters):
+    
     d = enchant.Dict("en_US")
-
     letters = letters.lower()
     MAX = len(letters)
     MIN = 3

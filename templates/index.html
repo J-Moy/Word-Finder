@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Welcome to Word Finder!</h1>
+    <form method="POST">
+        <label for="letters">Enter letters (maximum of 8):</label><br>
+        <input type="text" id="letters" name="letters" maxlength="8" required><br>
+        <input type="submit"><br><br>
+    </form>
+
+    {#
+    {% for word in words %}
+        {% for w in word %}
+            {{ w }}<br>
+        {% endfor %}
+    {% endfor %}
+    #}
+{% endblock %}
+
+<!--<!DOCTYPE html>
+
 <html lang="en" style="background-color: peachpuff">
     <head>
         <meta charset="UTF-8">
@@ -16,13 +36,14 @@
                 <input type="text" id="letters" name="letters" maxlength="8" required><br>
                 <input type="submit"><br><br>
             </form>
-            <!--
+
+            {#
             {% for word in words %}
                 {% for w in word %}
                     {{ w }}<br>
                 {% endfor %}
             {% endfor %}
-            !-->
+            #}
         </div>
     </body>
-</html>
+</html> -->

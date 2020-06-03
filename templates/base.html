@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <title>{% block title %} Word Finder {% endblock %}</title>
+    	<style>
+    		body
+            {
+                background-color: peachpuff;
+                text-align: center;
+            }
+            {% block style %} {% endblock %}
+    	</style>
+	</head>
+
+	<body>
+		<header>
+    		<a href="/">Home</a> |
+            <a href="/about">About</a>
+    	</header>
+        {% block content %}
+
+        {% endblock %}
+	</body>
+</html>
+

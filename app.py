@@ -5,7 +5,7 @@ from flask_pymongo import PyMongo
 import pymongo
 import wordFinder
 
-SESSION_TYPE = 'filesystem'
+# SESSION_TYPE = 'filesystem'
 
 app = Flask(__name__)
 app.secret_key = 'secret key lol'

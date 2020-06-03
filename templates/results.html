@@ -1,3 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Results{% endblock %}
+{% block content %}
+    <h1>Your results:</h1>
+    {% if not words | length %}
+        No words found with those letters.<br><br>
+        <a href="/">Try again?</a>
+    {% else %}
+        {% for word in words %}
+            Words with {{ word[0] | length }} letters ({{ word | length }}):<br>
+            {% for w in word %}
+                <span><b>{{ w }}</b></span><br>
+            {% endfor %}
+            <br>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+{#
 <!DOCTYPE html>
 <html lang="en" style="background-color: peachpuff">
 <head>
@@ -26,4 +46,4 @@
 
 </div>
 </body>
-</html>
+</html>#}
