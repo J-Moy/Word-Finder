@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block style %}
+    p {
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .warning
+    {
+        color: red;
+    }
+
+{% endblock %}
+
+{% block title %} Definition {% endblock %}
+
+{% block content %}
+    <h2>{{ word }}:</h2>
+    {% if definition %}
+        <p>{{ definition }}</p>
+    {% else %}
+        <p class="warning">Oops! Looks like we don't have a definition for this word yet!</p>
+    {% endif %}
+{% endblock %}

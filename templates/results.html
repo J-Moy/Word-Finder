@@ -2,7 +2,7 @@
 
 {% block title %}Results{% endblock %}
 {% block content %}
-    <h1>Your results:</h1>
+    <h1>Results:</h1>
     {% if not words | length %}
         No words found with those letters.<br><br>
         <a href="/">Try again?</a>
@@ -10,11 +10,18 @@
         {% for word in words %}
             Words with {{ word[0] | length }} letters ({{ word | length }}):<br>
             {% for w in word %}
-                <span><b>{{ w }}</b></span><br>
+                <a href="/definition/{{ w }}"><b>{{ w }}</b><br></a>
             {% endfor %}
             <br>
         {% endfor %}
     {% endif %}
+    <br><br>
+    <h3>Don't see a word? Tell us what we missed! (disabled)</h3>
+    <form method="POST">
+        <label for="wordToAdd">Enter the missing word:</label>
+        <input type="text" id="wordToAdd" name="wordToAdd" maxlength="30" disabled>
+        <input type="submit" disabled><br><br>
+    </form>
 {% endblock %}
 
 {#

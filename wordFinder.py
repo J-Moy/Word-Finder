@@ -15,11 +15,12 @@ TO DO:
 '''
 
 file = open('dictionary_compact.json', 'r')
+# file = open('dict_copy.json', 'r')
 data = json.load(file)
 file.close()
 
+
 def words(letters):
-    
     d = enchant.Dict("en_US")
     letters = letters.lower()
     MAX = len(letters)
@@ -86,6 +87,36 @@ def endingChar(letters, c):
 
     final = sorted(list(filter(lambda x: x != [], final)), key=lambda l: len(l[0]), reverse=True)
     return final
+
+
+def addWord(word):
+    with open('dict_copy.json', 'r') as f:
+        d = json.load(f)
+        d[word] = ""
+    with open('dict_copy.json', 'w') as f:
+        json.dump(d, f)
+
+    updateData()
+
+
+def updateData():
+    f = open('dict_copy.json', 'r')
+    global data
+    data = json.load(f)
+    f.close()
+
+
+def checkWord(w):
+
+    d = enchant.Dict("en_US")
+    return d.check(w)
+
+def definition(w):
+
+    if w in data:
+        return data[w]
+    else:
+        return None
 
 
 # def words():

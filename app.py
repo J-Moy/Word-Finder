@@ -4,6 +4,8 @@ from flask_pymongo import PyMongo
 # from flask.ext.session import Session
 import pymongo
 import wordFinder
+# from importlib import reload
+
 
 # SESSION_TYPE = 'filesystem'
 
@@ -22,7 +24,6 @@ cache = {}
 # @app.route('/index')
 def server():
 
-    # global results
     if request.method == 'POST':
         letters = request.form['letters']
         s = ''.join(sorted(letters))
@@ -39,17 +40,28 @@ def server():
             session['w'] = w
 
         return redirect(url_for('results'))  # separate route, or print results on same page?
-        # return render_template('index.html', Title='Word Finder', words=w)
+
     else:
         return render_template('index.html')
 
-@app.route('/results', methods=['GET'])
+@app.route('/results', methods=['GET', 'POST'])
 def results():
 
-    #global results
+    if request.method == "POST":
+        wordFinder.addWord(request.form['wordToAdd'])
+        global cache
+        cache = {}
+
     return render_template('results.html', words=session['w'])
-    #return render_template('results.html', words=results)
+    # return render_template('results.html', words=results)
     # return 'test'
+
+@app.route('/definition/<word>/')
+def define(word):
+
+    definition = wordFinder.definition(word)
+    return render_template('definition.html', definition=definition, word=word)
+
 
 @app.route('/about')
 def about():
