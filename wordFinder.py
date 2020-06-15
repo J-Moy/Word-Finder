@@ -21,7 +21,7 @@ file.close()
 
 
 def words(letters):
-    d = enchant.Dict("en_US")
+    d = enchant.Dict("en_US") # don't use pyenchant?
     letters = letters.lower()
     MAX = len(letters)
     MIN = 3
