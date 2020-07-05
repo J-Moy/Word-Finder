@@ -4,6 +4,7 @@ import itertools as it
 from bs4 import BeautifulSoup
 import requests
 import json
+from config import API_KEY_COLLEGIATE, API_KEY_THESAURUS
 
 
 '''
@@ -117,6 +118,11 @@ def definition(w):
         return data[w]
     else:
         return None
+
+def callAPI(w):
+
+    url = f'https://www.dictionaryapi.com/api/v3/references/collegiate/json/{w}?key={API_KEY_COLLEGIATE}'
+    r = requests.get(url)
 
 
 # def words():
