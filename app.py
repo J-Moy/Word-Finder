@@ -1,8 +1,9 @@
 from flask import *  # Flask, render_template, request, session
-from flask_inputs import Inputs
+# from flask_inputs import Inputs
 from flask_pymongo import PyMongo
 # from flask.ext.session import Session
-import pymongo
+# import pymongo
+from config import SECRET_KEY, MONGO_URI
 import wordFinder
 # from importlib import reload
 
@@ -10,10 +11,10 @@ import wordFinder
 # SESSION_TYPE = 'filesystem'
 
 app = Flask(__name__)
-app.secret_key = 'secret key lol'
+app.secret_key = SECRET_KEY
 
 # mongod --auth --dbpath /usr/local/var/mongodb
-app.config["MONGO_URI"] = "mongodb://localhost:27017/words"
+app.config["MONGO_URI"] = MONGO_URI
 mongo = PyMongo(app)
 
 collection = mongo.db['combos']
