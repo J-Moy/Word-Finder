@@ -1,5 +1,5 @@
 dict_copy.json
 dictionary_compact.json
 config.py
-__pycache__.py
-.idea
+/__pycache__
+/.idea
